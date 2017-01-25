@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @article.title %></h1>
+<div class="post_commentbox"> 
+<a href="#">
+<i class="fa fa-user"></i>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<%= @article.user.full_name unless @article.user.nil? %></a>
+<span>
+<i class="fa fa-calendar"></i>
+<%= @article.created_at.strftime("%m/%d/%Y") %>
+</span> 
+<a href="#"><i class="fa fa-tags"></i>
+Tag</a>
+</div>
+<div class="single_page_content">
+  <%= @article.content %><br><br>
+  <%= button_to 'Back', articles_path, method: :get, class: "btn btn-theme" %>       
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<div class="social_link">
+  <ul class="sociallink_nav">
+    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+  </ul>
+</div>

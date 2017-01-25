@@ -54,11 +54,7 @@ jQuery(document).ready(function() {
     $("ul#ticker01").liScroll();
 });
 
-wow = new WOW({
-    animateClass: 'animated',
-    offset: 100
-});
-wow.init();
+window.sr = ScrollReveal();
 
 jQuery(window).load(function() { // makes sure the whole site is loaded
     $('#status').fadeOut(); // will first fade out the loading animation
@@ -66,4 +62,5 @@ jQuery(window).load(function() { // makes sure the whole site is loaded
     $('body').delay(100).css({
         'overflow': 'visible'
     });
+    sr.reveal('.fadein');
 })

@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require wow.min.js
+//= require scrollreveal.min.js
 //= require_tree .
