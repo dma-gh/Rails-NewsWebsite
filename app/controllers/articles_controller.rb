@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @featured = Article.all.order("created_at DESC").where(featured: true).first(5)
   end
 
   # GET /articles/1
@@ -70,6 +70,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :content, :thumbnail)
+      params.require(:article).permit(:title, :content, :description, :featured, :thumbnail)
     end
 end

@@ -22,7 +22,12 @@
             <ul class="top_nav">
               <li><%= link_to "Home", root_path %></li>
               <li><a href="#">About</a></li>
-              <li><a href="pages/contact.html">Contact</a></li>
+              <% if user_signed_in? %>
+                <li><a>Welcome <%= current_user.full_name %></a></li>
+                <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+                <li><%= link_to 'New Article', new_article_path %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              <% end %>
             </ul>
           </div>
           <div class="header_top_right">
@@ -101,7 +106,7 @@
               <% @feed.first(5).each do |article| %>
                   <li>
                     <div class="media"> 
-                    <%= link_to image_tag(article.thumbnail), article_path(article), class: "media-left" %>
+                    <%= link_to image_tag(article.thumbnail, class: "crop_center"), article_path(article), class: "media-left" %>
                       <div class="media-body">
                       <%= link_to article.title, article_path(article), class: "catg_title" %></a> </div>
                     </div>
@@ -121,9 +126,13 @@
             <div class="single_post_content_left">
               <ul class="business_catgnav">
                 <li>
-                  <figure class="bsbig_fig"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="images/featured_img1.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+                  <figure class="bsbig_fig"> 
+                  <%= link_to "#{image_tag(@featured.last.thumbnail, class:'crop_center')}<span class='overlay'></span>".html_safe, article_path(@featured.last), class: "featured_img" %>
+                    <figcaption> 
+                      <%= link_to @featured.last.title, article_path(@featured.last) %> 
+                    </figcaption>
+                    
+                    <p><%= @featured.last.description %></p>
                   </figure>
                 </li>
               </ul>
@@ -133,7 +142,7 @@
                 <% @feed.last(4).each do |article| %>
                   <li>
                     <div class="media"> 
-                    <%= link_to image_tag(article.thumbnail), article_path(article), class: "media-left" %>
+                    <%= link_to image_tag(article.thumbnail, class: "crop_center"), article_path(article), class: "media-left" %>
                       <div class="media-body">
                       <%= link_to article.title, article_path(article), class: "catg_title" %></a> </div>
                     </div>
@@ -157,35 +166,10 @@
                   <li class="cat-item"><a href="#">Business</a></li>
                 </ul>
               </div>
-              <div role="tabpanel" class="tab-pane" id="comments">
-                <ul class="spost_nav">
-                  <li>
-                    <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
           <div class="single_sidebar">
             <h2><span>Advertisment</span></h2>
-            <a class="sideAdd" href="#"><img src="images/add_img.jpg" alt=""></a> </div>
+            <a class="sideAdd" href="#"><%= image_tag "ad_placeholder" %></a> </div>
         </aside>
       </div>
     </div>
