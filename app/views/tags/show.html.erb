@@ -1,0 +1,13 @@
+<h1><%= @tag.name.capitalize %> Articles</h1>
+<div style="margin-top: 40px;"></div>
+<ul class="spost_nav">
+  <% @tag.articles.each do |article| %>
+      <li>
+        <div class="media"> 
+        <%= link_to image_tag(article.thumbnail, class: "crop_center"), article_path(article), class: "media-left" %>
+          <div class="media-body">
+          <%= link_to article.title, article_path(article), class: "catg_title" %></a> </div>
+        </div>
+      </li>
+  <% end %>
+</ul>

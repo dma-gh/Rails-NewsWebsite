@@ -21,7 +21,7 @@
           <div class="header_top_left">
             <ul class="top_nav">
               <li><%= link_to "Home", root_path %></li>
-              <li><a href="#">About</a></li>
+              <li><%= link_to "Explore", tags_path %></li>
               <% if user_signed_in? %>
                 <li><a>Welcome <%= current_user.full_name %></a></li>
                 <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
@@ -38,7 +38,6 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><%= link_to image_tag("logo"), root_path, class: "logo" %></div>
-          <div class="ad_banner"><a href="#"></a></div>
         </div>
       </div>
     </div>
@@ -51,19 +50,10 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav main_nav">
           <li class="active"><a href="/"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
-          <li><a href="#">Technology</a></li>
-          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Android</a></li>
-              <li><a href="#">Samsung</a></li>
-              <li><a href="#">Nokia</a></li>
-              <li><a href="#">Walton Mobile</a></li>
-              <li><a href="#">Sympony</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Laptops</a></li>
-          <li><a href="#">Tablets</a></li>
-          <li><a href="pages/contact.html">Contact Us</a></li>
+          <li><%= link_to "Tags", tags_path %></li>
+          <% @tags.first(11).each do |tag| %>
+            <li><%= link_to tag.name.capitalize, tag_path(tag)%></li>
+          <% end %>
         </ul>
       </div>
     </nav>
@@ -162,12 +152,13 @@
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="category">
                 <ul>
-                 <% #get the tags of last 10 articles? %>
-                  <li class="cat-item"><a href="#">Business</a></li>
+                  <% @tags.each do |tag| %>
+                    <li class="cat-item"><%= link_to tag.name.capitalize, tag_path(tag)%></li>
+                  <% end %>
                 </ul>
               </div>
           </div>
-          <div class="single_sidebar">
+          <div class="single_sidebar" style="margin-top: 10px;">
             <h2><span>Advertisment</span></h2>
             <a class="sideAdd" href="#"><%= image_tag "ad_placeholder" %></a> </div>
         </aside>
@@ -186,15 +177,16 @@
           <div class="footer_widget">
             <h2>Tags</h2>
             <ul class="tag_nav">
-            <% #Tags object needs to go here %>
-              <li><a href="#">Business</a></li>
+              <% @tags.last(6).each do |tag| %>
+                <li><%= link_to tag.name.capitalize, tag_path(tag)%></li>
+              <% end %>
             </ul>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 fadein">
           <div class="footer_widget">
-            <h2>Contact</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <h2>Disclaimer</h2>
+            <p>MYAM does not necessarily share the views expressed by its writers.</p>
           </div>
         </div>
       </div>

@@ -38,6 +38,11 @@
   </div>
 
   <div class="field">
+      <%= f.label :tag_list %> (Separate with Commas)
+      <%= f.text_field :tag_list, class: "form-control" %>
+  </div>
+
+  <div class="field">
     <%= f.label :featured %>
     <%= f.check_box :featured, class: "form-control form-check-input" %>
   </div>

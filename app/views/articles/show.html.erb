@@ -5,11 +5,16 @@
 
 <%= @article.user.full_name unless @article.user.nil? %></a>
 <span>
-<i class="fa fa-calendar"></i>
-<%= @article.created_at.strftime("%m/%d/%Y") %>
+	<i class="fa fa-calendar"></i>
+	<%= @article.created_at.strftime("%m/%d/%Y") %>
 </span> 
 <a href="#"><i class="fa fa-tags"></i>
-Tag</a>
+	<% tag_output = [] %>
+	<% @article.tags.each do |tag| %>
+		<% tag_output << (link_to "#{tag.name} |", tag_path(tag)) %>
+	<% end %>
+	<%= tag_output.join.html_safe %>
+</a>
 </div>
 <div class="single_page_content">
   <%= @article.content %><br><br>

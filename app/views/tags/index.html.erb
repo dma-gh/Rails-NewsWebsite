@@ -1,0 +1,9 @@
+<h1>Tags</h1>
+<div style="margin-top: 30px"></div>
+<ul>
+  <% @all_tags.each do |tag| %>
+      <li>
+          <%= link_to "<h5>#{tag.name.capitalize}</h5>".html_safe, tag_path(tag), class: "catg_title" %></a>
+      </li>
+  <% end %>
+</ul>
