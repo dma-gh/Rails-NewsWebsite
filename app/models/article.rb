@@ -7,7 +7,7 @@ class Article < ApplicationRecord
 	validates_attachment_content_type :thumbnail, content_type: /\Aimage\/.*\z/
 
 	def tag_list
-		tags.strip.join(',')
+		tags.join(',') unless 
 	end
 
 	def tag_list=(tags_string)
