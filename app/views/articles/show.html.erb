@@ -17,7 +17,7 @@
 </a>
 </div>
 <div class="single_page_content">
-  <%= @article.content %><br><br>
+  <%= @article.content.html_safe %><br><br>
   <%= button_to 'Back', articles_path, method: :get, class: "btn btn-theme", style: "float:left;" %>
   <% if user_signed_in? %>
   	<%= button_to 'Edit', edit_article_path(@article), method: :get, class: "btn btn-theme",
