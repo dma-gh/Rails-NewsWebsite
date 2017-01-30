@@ -174,7 +174,23 @@
           </div>
           <div class="single_sidebar" style="margin-top: 10px;">
             <h2><span>Advertisment</span></h2>
-				<div style="float: left; margin-left: -30%;">
+				<div class="advert">
+
+				<style>
+					.advert > * {
+						margin-top: 20px;
+					}
+
+					.chitikaAdContainer {
+						width: 100%;
+					}
+
+					.chitikaAdBlock {
+						width: 100% !important;
+						margin: auto !important;
+						display: block !important;
+					}
+				</style>
 				<center>
 				<script type="text/javascript">
 				( function() {
@@ -182,10 +198,13 @@
 				var unit = {"calltype":"async[2]","publisher":"dallen6","width":550,"height":250,"sid":"Chitika Default"};
 				var placement_id = window.CHITIKA.units.length;
 				window.CHITIKA.units.push(unit);
-				document.write('<div style="float:left;" id="chitikaAdBlock-' + placement_id + '"></div>');
+				document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
 				}());
 				</script>
 				<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+				<script type="text/javascript">
+					$(".chitikaAdBlock").contents().find("body").attr("style","display:block;height:100%;vertical-align:middle;")
+				</script>
 				</center>
 				</div>
             </div>
