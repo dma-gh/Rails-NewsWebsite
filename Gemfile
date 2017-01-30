@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # CKEditor is the WYSIWYG used in the _form partial
 gem 'ckeditor'
+gem 'bootstrap-sass'
 #Font awesome implementation
 gem "font-awesome-rails"
 #User authentication
