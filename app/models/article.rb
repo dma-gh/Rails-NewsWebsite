@@ -17,7 +17,7 @@ class Article < ApplicationRecord
 	end
 
 	def url_title
-		title.downcase.gsub(/ /, '-').gsub(/#/, 'N')
+		title.downcase.gsub(/ /, '-').gsub(/\./, 'e')
 	end
 
 	def to_param
