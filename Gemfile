@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # CKEditor is the WYSIWYG used in the _form partial
-gem 'ckeditor'
+gem 'ckeditor', git: "https://github.com/galetahub/ckeditor.git"
 gem 'bootstrap-sass'
 #Font awesome implementation
 gem "font-awesome-rails"

@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/galetahub/ckeditor.git
+  revision: 11d3a5b905646c6fd397f7710f95fb9eb29f0865
+  specs:
+    ckeditor (4.2.2)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,7 +47,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
-    autoprefixer-rails (6.7.0)
+    autoprefixer-rails (6.7.2)
       execjs
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
@@ -47,9 +55,6 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
-    ckeditor (4.2.2)
-      cocaine
-      orm_adapter (~> 0.5.0)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -75,7 +80,7 @@ GEM
       railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    i18n (0.7.0)
+    i18n (0.8.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -185,7 +190,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   byebug
-  ckeditor
+  ckeditor!
   coffee-rails (~> 4.2)
   devise
   font-awesome-rails
